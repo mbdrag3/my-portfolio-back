@@ -7,7 +7,7 @@ const app = express();
 
 // Replace with your actual frontend URL on Render
 const corsOptions = {
-  origin: 'https://my-portfolio-ulnt.onrender.com', // Replace with the correct frontend URL
+  origin: 'https://michael-drag-portfolio.vercel.app/', // Vercel URL
   optionsSuccessStatus: 200,
 };
 
