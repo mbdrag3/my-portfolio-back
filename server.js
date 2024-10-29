@@ -12,7 +12,7 @@ const corsOptions = {
 };
 
 // Middleware
-app.use(cors(corsOptions)); // Enable CORS for the specified origin
+app.use(cors()); // Enable CORS for the specified origin
 app.use(express.json());    // Parse JSON data from incoming requests
 
 // Transporter setup with environment variables
