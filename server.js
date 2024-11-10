@@ -42,14 +42,14 @@ const transporter = nodemailer.createTransport({
 
 // Endpoint to handle email sending
 app.post('/send', (req, res) => {
-  const { email, userName, message } = req.body;
+  const { email, fullName, message } = req.body;
 
   const mailOptions = {
     from: process.env.EMAIL_USER, // Your email address
     to: process.env.EMAIL_USER,    // Receiving email address
     replyTo: email,                // User's email for replies
-    subject: `New Portfolio Contact Submission from ${userName}`,
-    text: `Name: ${userName}\nEmail: ${email}\nMessage: ${message}`,
+    subject: `New Portfolio Contact Submission from ${fullName}`,
+    text: `Name: ${fullName}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
