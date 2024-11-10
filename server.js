@@ -7,15 +7,29 @@ const app = express();
 
 //redeploy
 
-// Replace with your actual frontend URL on Render
+const allowedOrigins = [
+  'https://michael-drag-portfolio.vercel.app',
+  'https://michael-drag-portfolio-2kxylzhew-mbdrag3s-projects.vercel.app',
+  'https://michael-drag-portfolio-mbdrag3s-projects.vercel.app',
+  // Add any other URLs that you encounter
+];
+
+// Middleware to check allowed origins
 const corsOptions = {
-  origin: 'https://michael-drag-portfolio.vercel.app', // Vercel URL
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   optionsSuccessStatus: 200,
 };
 
-// Middleware
-app.use(cors(corsOptions)); // Enable CORS for the specified origin
-app.use(express.json());    // Parse JSON data from incoming requests
+// Apply CORS middleware
+app.use(cors(corsOptions));
+app.use(express.json()); // Parse JSON data from incoming requests
+
 
 // Transporter setup with environment variables
 const transporter = nodemailer.createTransport({
