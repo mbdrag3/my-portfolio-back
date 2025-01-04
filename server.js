@@ -8,7 +8,8 @@ const app = express();
 //redeploy
 
 const allowedOrigins = [
-  'https://michaeldrag.com', // Add your new custom domain
+  'https://michaeldrag.com',      // Root domain
+  'https://www.michaeldrag.com',  // www subdomain
   'https://michael-drag-portfolio.vercel.app',
   'https://michael-drag-portfolio-2kxylzhew-mbdrag3s-projects.vercel.app',
   'https://michael-drag-portfolio-mbdrag3s-projects.vercel.app',
